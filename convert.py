@@ -13,7 +13,11 @@ def get_range_settings(ipath):
     for index, _range in ranges:
         print(f"'tc-{index}': '{_range.strip()}',")
 
+    # NOTE: add TC range set
     range_set = " ".join(f"tc-{index}" for index, _ in ranges)
+
+    # NOTE: add origin supported range set
+    range_set += " " + " ".join("latin, latin-ext, cyrillic, cyrillic-ext, greek, greek-ext, vietnamese, sinhala, hebrew, oriya, malayalam, gurmukhi, kannada, arabic, tamil, khmer, telugu, bengali, thai, devanagari, myanmar, gujarati".split(","))
 
     font_name = basename(ipath).rsplit(".")[0]
 
